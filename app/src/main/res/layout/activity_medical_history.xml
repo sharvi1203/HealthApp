@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MedicalHistory">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+    <TextView
+        android:id="@+id/textViewHeading"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Medical History"
+        android:textSize="30dp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/textViewConditions"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify your medical conditions"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/MedCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter medical Condition" />
+    <EditText
+        android:id="@+id/StartDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Specify the Start date" />
+    <EditText
+        android:id="@+id/EndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Specify the End date (if applicable)" />
+    <TextView
+        android:id="@+id/textViewDevices"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify your Medical Devices"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/DeviceSpecification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Describe the device specification" />
+    <TextView
+        android:id="@+id/ImagingStudies"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify your Radiography Reports "
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/Modality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Specify the reports" />
+    <EditText
+        android:id="@+id/BodySite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Body Site" />
+    <TextView
+        android:id="@+id/Immunizations"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify any vaccinations "
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/ImmunDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Specify the immunizations" />
+    <TextView
+        android:id="@+id/Medications"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify Medications "
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/DescribeMedicines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Kindly mention your medicines" />
+    <EditText
+        android:id="@+id/DescribeDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Kindly mention the start date " />
+    <TextView
+        android:id="@+id/MedicalReports"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly specify Medical Reports "
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/DescribeMedicalReports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Kindly mention your Medical Reports " />
+    <Button
+        android:id="@+id/ButtonSubmitMed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="Submit"
+        />
+
+    ></LinearLayout>
+</ScrollView>

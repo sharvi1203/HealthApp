@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "889690033316",
+    "firebase_url": "https://optum-2d598.firebaseio.com",
+    "project_id": "optum-2d598",
+    "storage_bucket": "optum-2d598.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889690033316:android:cc3a41b609896862992a31",
+        "android_client_info": {
+          "package_name": "com.example.healthapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889690033316-f5itvftknjm7otn4aff37ugqfqa2rak7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARTxxIGjVCqIMmWW0pEKvzPJIbgFuTQW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889690033316-f5itvftknjm7otn4aff37ugqfqa2rak7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
