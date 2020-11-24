@@ -75,6 +75,8 @@ public class MenuPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==101){
             Log.i("Info1","101");
+            Intent intent=new Intent(MenuPage.this,Scheduler.class);
+            startActivity(intent);
         }
         if(item.getItemId()==201){
             Log.i("Info2","102");

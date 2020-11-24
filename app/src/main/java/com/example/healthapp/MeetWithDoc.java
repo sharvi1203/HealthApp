@@ -2,6 +2,7 @@ package com.example.healthapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MeetWithDoc extends AppCompatActivity {
 
     TextView TxtHeading,TxtLink;
+    ProgressDialog progressDialog;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meet_with_doc);
@@ -23,6 +25,9 @@ public class MeetWithDoc extends AppCompatActivity {
     private void getZoomLink() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Doctor");
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Looking for doctors...");
+        progressDialog.show();
         TxtHeading=findViewById(R.id.textViewHeading);
         TxtLink=findViewById(R.id.textViewZoomLink);
         // Read from the database
@@ -40,10 +45,12 @@ public class MeetWithDoc extends AppCompatActivity {
                         Log.e("TAG", "LINK for Zoom: "+ snapshot.child("Zoom").getValue().toString());
                         TxtHeading.setText("Hello! Hope you are doing well Dr "+ snapshot.child("Name").getValue().toString() +" will be ready for you");
                         TxtLink.setText(snapshot.child("Zoom").getValue().toString());
+                        progressDialog.dismiss();
                         break;
                     }else{
                         Log.e("TAG", "onDataChange: Not Found");
                         /* TODO: display no doctors available */
+                        progressDialog.dismiss();
                         break;
                     }
                 }

@@ -3,6 +3,7 @@ package com.example.healthapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ public class MedicalDetails extends AppCompatActivity {
     Button btnSubmit;
     Patient patient;
     FirebaseAuth auth;
+    ProgressDialog progressDialog;
     void init(){
         eTxtName=findViewById(R.id.Name);
         eTxtDob=findViewById(R.id.Dob);
@@ -33,6 +35,8 @@ public class MedicalDetails extends AppCompatActivity {
         eTxtPassword=findViewById(R.id.Password);
         btnSubmit=findViewById(R.id.buttonSubmit);
         auth=FirebaseAuth.getInstance();
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait...");
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +66,7 @@ public class MedicalDetails extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Log.i("Info","Success");
+
                             saveUserInFirebase();
                         }
                         else{
