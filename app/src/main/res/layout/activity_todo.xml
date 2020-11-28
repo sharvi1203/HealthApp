@@ -43,8 +43,8 @@
             android:textSize="18sp"
             android:textColor="#F63EA5"
             android:layout_marginTop="8dp"
-            android:text="Tomorrow"
-            android:gravity="right"
+            android:text="Today"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

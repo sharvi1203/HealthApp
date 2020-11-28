@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
-        setAlarm(16,22,"Take a diabties check","Hello!");
+        setAlarm(22,45,"Take a diabetes check","Blood Sugar Test");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
