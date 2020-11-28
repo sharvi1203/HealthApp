@@ -8,7 +8,6 @@
     android:background="@color/purple_200"
     tools:context=".MedicalDetails">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="252dp"
@@ -32,7 +31,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/Name"
+            android:id="@+id/DocName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -40,59 +39,43 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/Dob"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="Enter DOB" />
-
-        <EditText
-            android:id="@+id/Gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Gender"
-            />
-        <EditText
-            android:id="@+id/ContactNumber"
+            android:id="@+id/DocContactNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
             android:hint="Enter your Contact Number" />
         <EditText
-            android:id="@+id/EmailAdd"
+            android:id="@+id/DocEmailAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:hint="Enter your Email Address" />
         <EditText
-            android:id="@+id/Password"
+            android:id="@+id/DocPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:hint="Enter your Password" />
         <EditText
-            android:id="@+id/Address"
+            android:id="@+id/qualification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Enter your Address" />
+            android:hint="Enter your Qualification" />
         <EditText
-            android:id="@+id/CaretakerEmailAddP"
+            android:id="@+id/specialization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Enter Email address of your caretaker" />
+            android:hint="Enter your Specialization" />
 
         <Button
-            android:id="@+id/buttonSubmit"
+            android:id="@+id/buttonSubmitDoc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"

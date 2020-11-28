@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/purple_200"
-    tools:context=".MedicalDetails">
-
+    tools:context=".RegisterCaretaker">
 
     <TextView
         android:id="@+id/textView"
@@ -32,7 +31,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/Name"
+            android:id="@+id/NameCaretaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -40,15 +39,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/Dob"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="Enter DOB" />
-
-        <EditText
-            android:id="@+id/Gender"
+            android:id="@+id/GenderCaretaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -56,48 +47,40 @@
             android:hint="Gender"
             />
         <EditText
-            android:id="@+id/ContactNumber"
+            android:id="@+id/CaretakerContactNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
             android:hint="Enter your Contact Number" />
         <EditText
-            android:id="@+id/EmailAdd"
+            android:id="@+id/CaretakerEmailAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:hint="Enter your Email Address" />
         <EditText
-            android:id="@+id/Password"
+            android:id="@+id/CaretakerPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:hint="Enter your Password" />
         <EditText
-            android:id="@+id/Address"
+            android:id="@+id/CaretakerAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your Address" />
-        <EditText
-            android:id="@+id/CaretakerEmailAddP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter Email address of your caretaker" />
 
         <Button
-            android:id="@+id/buttonSubmit"
+            android:id="@+id/buttonSubmitCaretaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"
             android:background="@color/purple_200"/>
-
 
     </LinearLayout>
 

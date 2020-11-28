@@ -10,6 +10,18 @@ public class Patient implements Serializable {
     public String EmailAdd;
     public String Add;
     public String Password;
+    public String CaretakerEmail;
+
+    public Patient(String name, String dob, String gender, String contactNum, String emailAdd, String add, String password, String caretakerEmail) {
+        Name = name;
+        Dob = dob;
+        Gender = gender;
+        ContactNum = contactNum;
+        EmailAdd = emailAdd;
+        Add = add;
+        Password = password;
+        CaretakerEmail = caretakerEmail;
+    }
 
     @Override
     public String toString() {
@@ -21,17 +33,8 @@ public class Patient implements Serializable {
                 ", EmailAdd='" + EmailAdd + '\'' +
                 ", Add='" + Add + '\'' +
                 ", Password='" + Password + '\'' +
+                ", CaretakerEmail='" + CaretakerEmail + '\'' +
                 '}';
-    }
-
-    public Patient(String name, String dob, String gender, String contactNum, String emailAdd, String add, String password) {
-        Name = name;
-        Dob = dob;
-        Gender = gender;
-        ContactNum = contactNum;
-        EmailAdd = emailAdd;
-        Add = add;
-        Password = password;
     }
 
     public Patient() {

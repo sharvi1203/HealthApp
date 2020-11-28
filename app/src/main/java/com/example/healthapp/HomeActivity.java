@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,13 +34,15 @@ public class HomeActivity extends AppCompatActivity {
         btnCaretaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(HomeActivity.this,LoginCaretaker.class);
+                startActivity(intent);
             }
         });
         btnDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(HomeActivity.this,LoginDoctor.class);
+                startActivity(intent);
             }
         });
     }
@@ -49,25 +52,33 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
-        setAlarm(22,45,"Take a diabetes check","Blood Sugar Test");
+        setAlarm(21,21,"Take a diabetes check","Blood Sugar Test");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setAlarm(int h, int m, String msg, String tag) {
-        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Toast.makeText(this, "OnReceive alarm test 1", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MyAlarmReceiver.class);
-        intent.putExtra("msg", msg);
-        intent.putExtra("tag", tag);
-        alarmIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, h);
-        calendar.set(Calendar.MINUTE, m);
-        calendar.set(Calendar.SECOND, 0);
 
-        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
-        Toast.makeText(this, "OnReceive alarm test 2", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MyAlarmReceiver.class);
+        boolean isWorking = (PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_NO_CREATE) != null);//just changed the flag
+        if(isWorking == true){
+            Log.e("TAG", "setAlarm:===============================" );
+        }
+        else {
+            alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Toast.makeText(this, "OnReceive alarm test 1", Toast.LENGTH_SHORT).show();
+
+            intent.putExtra("msg", msg);
+            intent.putExtra("tag", tag);
+            alarmIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, h);
+            calendar.set(Calendar.MINUTE, m);
+            calendar.set(Calendar.SECOND, 0);
+
+            alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+            Toast.makeText(this, "OnReceive alarm test 2", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

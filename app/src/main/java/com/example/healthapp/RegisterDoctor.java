@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthapp.model.Doctor;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,50 +20,42 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MedicalDetails extends AppCompatActivity {
-    EditText eTxtName,eTxtDob,eTxtGender,eTxtContact,eTxtAdd,eTxtEmailAdd,eTxtPassword,eTxtCareEmail;
+public class RegisterDoctor extends AppCompatActivity {
+    EditText eTxtName,eTxtContact,eTxtEmail,eTxtPass,eTxtQualification,eTxtSpecialization;
     Button btnSubmit;
-    Patient patient;
     FirebaseAuth auth;
     ProgressDialog progressDialog;
+    Doctor doctor;
     void init(){
-        eTxtName=findViewById(R.id.Name);
-        eTxtDob=findViewById(R.id.Dob);
-        eTxtGender=findViewById(R.id.Gender);
-        eTxtContact=findViewById(R.id.ContactNumber);
-        eTxtAdd=findViewById(R.id.Address);
-        eTxtEmailAdd=findViewById(R.id.EmailAdd);
-        eTxtPassword=findViewById(R.id.Password);
-        eTxtCareEmail=findViewById(R.id.CaretakerEmailAddP);
-        btnSubmit=findViewById(R.id.buttonSubmit);
+        eTxtName=findViewById(R.id.DocName);
+        eTxtContact=findViewById(R.id.DocContactNumber);
+        eTxtEmail=findViewById(R.id.DocEmailAdd);
+        eTxtPass=findViewById(R.id.DocPassword);
+        eTxtQualification=findViewById(R.id.qualification);
+        eTxtSpecialization=findViewById(R.id.specialization);
+        btnSubmit=findViewById(R.id.buttonSubmitDoc);
         auth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Please Wait...");
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                patient=new Patient();
-                patient.Name=eTxtName.getText().toString();
-                patient.Dob=eTxtDob.getText().toString();
-                patient.Add=eTxtAdd.getText().toString();
-                patient.ContactNum=eTxtContact.getText().toString();
-                patient.Gender=eTxtGender.getText().toString();
-                patient.EmailAdd=eTxtEmailAdd.getText().toString();
-                patient.Password=eTxtPassword.getText().toString();
-                patient.CaretakerEmail=eTxtCareEmail.getText().toString();
-                if(patient.Password.isEmpty() || patient.Password.length()<6){
-                    eTxtPassword.setError("You must have atlease 6 characters");
-                    return;
-                }
-                //Toast.makeText(MedicalDetails.this,patient.Name+" Kuch ho rha hai",Toast.LENGTH_LONG).show();
+                doctor=new Doctor();
+                doctor.Name=eTxtName.getText().toString();
+                doctor.contact=eTxtContact.getText().toString();
+                doctor.Email=eTxtEmail.getText().toString();
+                doctor.pass=eTxtPass.getText().toString();
+                doctor.qualification=eTxtPass.getText().toString();
+                doctor.specialization=eTxtSpecialization.getText().toString();
                 registerUserInFirebase();
             }
         });
+
     }
     void registerUserInFirebase(){
         //Toast.makeText(MedicalDetails.this,patient.Name+" Kuch ho rha hai",Toast.LENGTH_LONG).show();
-
-        auth.createUserWithEmailAndPassword(patient.EmailAdd,patient.Password)
+        progressDialog.show();
+        auth.createUserWithEmailAndPassword(doctor.Email,doctor.pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -71,7 +64,7 @@ public class MedicalDetails extends AppCompatActivity {
                             saveUserInFirebase();
                         }
                         else{
-                            Toast.makeText(MedicalDetails.this,"Something went wrong",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterDoctor.this,"Something went wrong",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -79,19 +72,20 @@ public class MedicalDetails extends AppCompatActivity {
     void saveUserInFirebase(){
         FirebaseUser firebaseUser=auth.getCurrentUser();
         String uid=firebaseUser.getUid();
+        progressDialog.dismiss();
         FirebaseFirestore db=FirebaseFirestore.getInstance();
-        db.collection("users").document(uid).set(patient)
+        db.collection("doctors").document(uid).set(doctor)
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isComplete()) {
                             Log.i("Information","Success hojana chahiye save");
-                            Intent intent=new Intent(MedicalDetails.this,MedicalHistory.class);
+                            Intent intent=new Intent(RegisterDoctor.this,MedicalHistory.class);
                             startActivity(intent);
                             finish();
                             //Toast.makeText(MedicalDetails.this, patient.Name + " Kuch ho rha hai", Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(MedicalDetails.this,"Something went wrong save vale function mei",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterDoctor.this,"Something went wrong save vale function mei",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -99,9 +93,7 @@ public class MedicalDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medical_details);
+        setContentView(R.layout.activity_register_doctor);
         init();
     }
-
-
 }

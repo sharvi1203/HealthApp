@@ -7,22 +7,12 @@ import android.os.Bundle;
 
 
 public class  MainActivity extends AppCompatActivity {
-//    RecyclerView chatView;
-//    ChatAdapter chatAdapter;
-//    List<Message> messageList = new ArrayList<>();
-//    EditText editMessage;
-//    ImageButton btnSend;
-//
-//    //dialogFlow
-//    private SessionsClient sessionsClient;
-//    private SessionName sessionName;
-//    private String uuid = UUID.randomUUID().toString();
-//    private String TAG = "mainactivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 //        chatView = findViewById(R.id.chatView);
 //        editMessage = findViewById(R.id.editMessage);
 //        btnSend = findViewById(R.id.btnSend);
@@ -85,4 +75,3 @@ public class  MainActivity extends AppCompatActivity {
 //           Toast.makeText(this, "failed to connect!", Toast.LENGTH_SHORT).show();
 //        }
 //    }
-}
