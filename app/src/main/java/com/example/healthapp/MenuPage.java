@@ -86,6 +86,8 @@ public class MenuPage extends AppCompatActivity {
         }
         if(item.getItemId()==301){
             Log.i("Info3","103");
+            Intent intent=new Intent(MenuPage.this,MainActivity.class);
+            startActivity(intent);
         }
         if(item.getItemId()==401){
             Log.i("Info4","104");
